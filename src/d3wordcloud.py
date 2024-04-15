@@ -97,5 +97,5 @@ def display_wordcloud(text, show_settings=False,export=True):
         wordcloud_html = wordcloud_html.replace("""<form id="form" style="">""","""<form id="form" style="display:none">""")
     if export == True: # hidden=true doesn't work for some reason
         with open('./saving.html', 'wb+') as f:
-        f.write(wordcloud_html)
+            f.write(wordcloud_html)
     display(HTML(wordcloud_html))
