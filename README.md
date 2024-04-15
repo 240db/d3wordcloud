@@ -7,7 +7,23 @@ A simple Jupyter (Lab/Notebook) wrapper of Jason Davies d3 JS wordcloud generato
 `pip install d3wordcloud` 
 
 ## Usage 
-Displays the interactive SVG wordcloud right in your Jupyter Notebook (or Jupyter Lab).
+
+### Function save_wordcloud()
+Input: text
+Output: HTML File export 
+i.e.
+
+```python
+import d3wordcloud as d3wc
+d3wc.save_wordcloud(df.topics.unique()[2])
+```
+
+You can then load this in gradio using Markdown embedded as a link or try using gr.HTML(). A custom iframe should work too
+
+
+### Function display_wordcloud()
+Input: text, boolean for show_settings
+Output: An interactive SVG wordcloud right in your Jupyter Notebook (or Jupyter Lab).
 
 ```python
 import d3wordcloud as d3wc
@@ -39,4 +55,5 @@ Uninstalling is as easy as
 If you are using a virtual env (like conda env) and the wordcloud SVG is not showing it is probably related to a [Jupyter bug](https://github.com/jupyter-widgets/ipywidgets/issues/2257). A possible workaround is [working in just one notebook at a time](https://github.com/jupyter-widgets/ipywidgets/issues/2257#issuecomment-1270112153)
 
 ## To Do
+- add probabilities (percentage) parameter so that we can fit LDA models and the top words percentages to control the size of each word
 - Port all the settings for full control in Python. 
