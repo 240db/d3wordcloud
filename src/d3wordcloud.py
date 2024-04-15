@@ -95,7 +95,7 @@ function flatten(t,e){if("string"==typeof t)return t;var n=[];for(e in t){var a=
 def save_wordcloud(text):
     wordcloud_html = template.replace("$text",text) 
     with open('./saving.html', 'w+') as f:
-        f.write(HTML(wordcloud_html))
+        f.write(wordcloud_html)
         f.close
   
 def display_wordcloud(text, show_settings=False):
