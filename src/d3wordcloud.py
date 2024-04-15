@@ -91,11 +91,15 @@ function flatten(t,e){if("string"==typeof t)return t;var n=[];for(e in t){var a=
 </html>
 """
 
-def display_wordcloud(text, show_settings=False,export=True):
+
+def save_wordcloud(text):
+    wordcloud_html = template.replace("$text",text) 
+    with open('./saving.html', 'rw+') as f:
+        f.write(HTML(wordcloud_html))
+        f.close
+  
+def display_wordcloud(text, show_settings=False):
     wordcloud_html = template.replace("$text",text)
     if show_settings == False: # hidden=true doesn't work for some reason
         wordcloud_html = wordcloud_html.replace("""<form id="form" style="">""","""<form id="form" style="display:none">""")
-    if export == True: # hidden=true doesn't work for some reason
-        with open('./saving.html', 'w+') as f:
-            f.write(wordcloud_html)
     display(HTML(wordcloud_html))
